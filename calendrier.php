@@ -30,7 +30,7 @@
 					<td>Heure</td>
 					<td>Nombre de place dispo</td>
 					<td>Adresse</td>
-					<td>Message de l"organisateur </td>
+					
 
 				</tr>';
 					while ($ligne = $rep->fetch()) {
@@ -42,16 +42,16 @@
 						echo "<td>".$ligne['Date']  ."</td>";
 						echo "<td>".$ligne['Heure'] ."</td>";
 						echo "<td>".$ligne['Nbr_joueurs'] ."</td>";
-						echo "<td>".$ligne['InsNoVoie'] ."  ".$ligne['InsLibelleVoie']." ".$ligne['InsCodePostal']."</td>";
-						echo "<td>".$ligne['message'] ."</td></tr>";
+						echo "<td>".$ligne['InsNoVoie'] ."  ".$ligne['InsLibelleVoie']." ".$ligne['InsCodePostal']."</td></tr>";
+						
 						} else { $ligne['etat']=true ;
 						echo "<tr><td>SELECT</td>";
 					    echo "<td>".$ligne['rencontre_id']."</td>";
 						echo "<td>".$ligne['Date']  ."</td>";
 						echo "<td>".$ligne['Heure'] ."</td>";
 						echo "<td>Complet !</td>";
-						echo "<td>".$ligne['InsNoVoie'] ."  ".$ligne['InsLibelleVoie']." ".$ligne['InsCodePostal']."</td>";
-						echo "<td>".$ligne['message'] ."</td></tr>";}
+						echo "<td>".$ligne['InsNoVoie'] ."  ".$ligne['InsLibelleVoie']." ".$ligne['InsCodePostal']."</td></tr>";
+						}
 
 								}  $rep -> closeCursor();
 					echo "Rencontres dispo :" .$i;
