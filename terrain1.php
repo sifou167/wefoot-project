@@ -8,14 +8,14 @@
 					 $date=$_POST['dd'];
 					 $heure=$_POST['hh'];
 					 $joueur=$_POST['nbr'];
-					 $msg=$_POST['msg'];
+					
 
 $bdd = new PDO('mysql:host=localhost:8889;dbname=project_bdd;charset=utf8','root','root');
 
-					function enregistrer ($c,$id, $d, $h, $nbr,$m){
+					function enregistrer ($c,$id, $d, $h, $nbr){
 						$n=$nbr-1;
 					$bdd = new PDO('mysql:host=localhost:8889;dbname=project_bdd;charset=utf8','root','root');
-					$sql= "INSERT INTO `listederencontres`(`EquipementId`, `utili_id`, `Date`, `Heure`, `Nbr_joueurs`, 'message') VALUES ('$c','$id', '$d', '$h','$n','$m')";
+					$sql= "INSERT INTO `listederencontres`(`EquipementId`, `utili_id`, `Date`, `Heure`, `Nbr_joueurs`, 'message') VALUES ('$c','$id', '$d', '$h','$n')";
 					$bdd->exec($sql);
 					echo '<div class="alerte" >La rencontre à été ajouter avec succes !</div>';
 
@@ -38,7 +38,7 @@ $bdd = new PDO('mysql:host=localhost:8889;dbname=project_bdd;charset=utf8','root
 							$rep = $bdd->query($req);
 							if (empty($ligne = $rep->fetch())) {
 								
-							enregistrer($code,$id,$date,$heure,$joueur,$msg);
+							enregistrer($code,$id,$date,$heure,$joueur);
 							$renc=Inlistejoueur($date,$heure,$code);
 							
 							$req1="INSERT INTO `listedejouers`(`rencontre_id`, `utili_id`) VALUES ($renc,$id)";
